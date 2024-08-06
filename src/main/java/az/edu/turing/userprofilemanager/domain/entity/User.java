@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name="users")
+@Table(name="users2")
 public class User {
 
     @Id
@@ -25,6 +25,7 @@ public class User {
     private Date creatAt;
     private Date updateAt;
     @Lob
+    @Column(name = "profile_photo")
     private byte[] profilePhoto;
 
     @OneToOne(cascade = CascadeType.ALL)
