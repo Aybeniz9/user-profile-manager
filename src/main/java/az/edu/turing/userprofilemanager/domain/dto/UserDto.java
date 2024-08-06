@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -13,8 +14,8 @@ public class UserDto {
     private Long id;
     private String username;
     private int age;
-    private Date creatAt;
-    private Date updateAt;
+    private LocalDateTime creatAt;
+    private LocalDateTime updateAt;
     private byte[] profilePhoto;
     private ProfileDto profile;
 }

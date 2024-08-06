@@ -9,6 +9,7 @@ import az.edu.turing.userprofilemanager.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -32,8 +33,8 @@ public class UserServiceImpl implements UserService {
         user.setId(userDto.getId());
         user.setUsername(userDto.getUsername());
         user.setAge(userDto.getAge());
-        user.setCreatAt(userDto.getCreatAt());
-        user.setUpdateAt(userDto.getUpdateAt());
+        user.setCreatedAt(userDto.getCreatAt());
+        user.setUpdatedAt(userDto.getUpdateAt());
         user.setProfilePhoto(userDto.getProfilePhoto());
 
         if (userDto.getProfile() != null) {
@@ -55,8 +56,8 @@ public class UserServiceImpl implements UserService {
                         user.getId(),
                         user.getUsername(),
                         user.getAge(),
-                        user.getCreatAt(),
-                        user.getUpdateAt(),
+                        user.getCreatedAt(),
+                        user.getUpdatedAt(),
                         user.getProfilePhoto(),
                         user.getProfile() != null ? new ProfileDto(
                                 user.getProfile().getId(),
@@ -83,8 +84,8 @@ public class UserServiceImpl implements UserService {
                         user.getId(),
                         user.getUsername(),
                         user.getAge(),
-                        user.getCreatAt(),
-                        user.getUpdateAt(),
+                        user.getCreatedAt(),
+                        user.getUpdatedAt(),
                         user.getProfilePhoto(),
                         user.getProfile() != null ? new ProfileDto(
                                 user.getProfile().getId(),
@@ -100,7 +101,7 @@ public class UserServiceImpl implements UserService {
             User user = optionalUser.get();
             user.setUsername(userDto.getUsername());
             user.setAge(userDto.getAge());
-            user.setUpdateAt(new java.util.Date());
+            user.setUpdatedAt(LocalDateTime.now());
             user.setProfilePhoto(userDto.getProfilePhoto());
 
             if (userDto.getProfile() != null) {
@@ -117,8 +118,8 @@ public class UserServiceImpl implements UserService {
                     user.getId(),
                     user.getUsername(),
                     user.getAge(),
-                    user.getCreatAt(),
-                    user.getUpdateAt(),
+                    user.getCreatedAt(),
+                    user.getUpdatedAt(),
                     user.getProfilePhoto(),
                     user.getProfile() != null ? new ProfileDto(
                             user.getProfile().getId(),
@@ -136,14 +137,14 @@ public class UserServiceImpl implements UserService {
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             user.setAge(userDto.getAge());
-            user.setUpdateAt(new java.util.Date());
+            user.setUpdatedAt(LocalDateTime.now());
             userRepository.save(user);
             return new UserDto(
                     user.getId(),
                     user.getUsername(),
                     user.getAge(),
-                    user.getCreatAt(),
-                    user.getUpdateAt(),
+                    user.getCreatedAt(),
+                    user.getUpdatedAt(),
                     user.getProfilePhoto(),
                     user.getProfile() != null ? new ProfileDto(
                             user.getProfile().getId(),
@@ -169,8 +170,8 @@ public class UserServiceImpl implements UserService {
                             user.getId(),
                             user.getUsername(),
                             user.getAge(),
-                            user.getCreatAt(),
-                            user.getUpdateAt(),
+                            user.getCreatedAt(),
+                            user.getUpdatedAt(),
                             user.getProfilePhoto(),
                             new ProfileDto(
                                     profile.getId(),

@@ -1,15 +1,14 @@
 package az.edu.turing.userprofilemanager.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import java.util.Date;
+import lombok.*;
 
+import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -20,10 +19,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     private Long id;
+
     private String username;
     private int age;
-    private Date creatAt;
-    private Date updateAt;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
     @Lob
     @Column(name = "profile_photo")
     private byte[] profilePhoto;
@@ -31,6 +36,4 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id", referencedColumnName = "id")
     private Profile profile;
-
 }
-
