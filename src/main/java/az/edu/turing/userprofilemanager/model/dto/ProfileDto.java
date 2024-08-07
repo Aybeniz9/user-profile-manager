@@ -1,4 +1,4 @@
-package az.edu.turing.userprofilemanager.domain.dto;
+package az.edu.turing.userprofilemanager.model.dto;
 
 
 import lombok.*;

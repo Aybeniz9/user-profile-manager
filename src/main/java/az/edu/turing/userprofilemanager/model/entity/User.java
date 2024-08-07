@@ -1,4 +1,4 @@
-package az.edu.turing.userprofilemanager.domain.entity;
+package az.edu.turing.userprofilemanager.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

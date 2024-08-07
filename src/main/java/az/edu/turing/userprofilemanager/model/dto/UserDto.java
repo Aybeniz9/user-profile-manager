@@ -1,11 +1,10 @@
-package az.edu.turing.userprofilemanager.domain.dto;
+package az.edu.turing.userprofilemanager.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
