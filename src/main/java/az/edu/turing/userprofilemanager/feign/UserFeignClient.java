@@ -3,8 +3,10 @@ package az.edu.turing.userprofilemanager.feign;
 import az.edu.turing.userprofilemanager.model.dto.UserDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+
 
 @FeignClient(name = "user-service", url = "${user.service.url}")
 public interface UserFeignClient {
